@@ -1,0 +1,36 @@
+name: onlyoffice-docspace-4testing
+image: mcp/onlyoffice-docspace-4testing
+type: server
+meta:
+  category: productivity
+  tags:
+    - onlyoffice
+    - docspace
+    - productivity
+about:
+  title: ONLYOFFICE DocSpace (4testing)
+  description: ONLYOFFICE DocSpace is a room-based collaborative platform which allows organizing a clear file structure depending on users' needs or project goals.
+  icon: https://avatars.githubusercontent.com/u/1426033?v=4
+source:
+  project: https://github.com/ONLYOFFICE/docspace-mcp
+  branch: develop
+config:
+  description: Configure the connection to ONLYOFFICE DocSpace
+  secrets:
+    - name: onlyoffice-docspace-4testing.api_key
+      env: DOCSPACE_API_KEY
+      example: sk-a499e...
+  env:
+    - name: DOCSPACE_BASE_URL
+      example: https://your-instance.onlyoffice.com
+      value: '{{onlyoffice-docspace-4testing.base_url}}'
+    - name: DOCSPACE_TOOLSETS
+      example: all
+      value: '{{onlyoffice-docspace-4testing.toolsets}}'
+  parameters:
+    type: object
+    properties:
+      base_url:
+        type: string
+      toolsets:
+        type: string
